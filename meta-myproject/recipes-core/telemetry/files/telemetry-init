@@ -1,0 +1,22 @@
+#!/bin/sh
+
+case "$1" in
+  start)
+    echo "Starting telemetry..."
+    /usr/bin/python3 /opt/telemetry/telemetry.py &
+    ;;
+  stop)
+    echo "Stopping telemetry..."
+    killall python3
+    ;;
+  restart)
+    $0 stop
+    $0 start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/telemetry {start|stop|restart}"
+    exit 1
+    ;;
+esac
+
+exit 0

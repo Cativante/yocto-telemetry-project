@@ -1,0 +1,10 @@
+[Unit]
+Description=Telemetry MQTT
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /opt/telemetry/telemetry.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
